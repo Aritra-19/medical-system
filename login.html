@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TeleHealth Connect 24/7</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 10px;
+      background-color: #4a90a4;
+      background-image:
+        linear-gradient(rgba(0, 50, 100, 0.3), rgba(0, 50, 100, 0.3)),
+        url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&q=80');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .main {
+      position: relative;
+      z-index: 1;
+      background: rgba(173, 216, 230, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 30px 35px;
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    h1 {
+      color: #004c8c;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      color: #002b5b;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      text-align: left;
+      color: #023047;
+      font-weight: bold;
+    }
+
+    input {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.4);
+      color: #023047;
+      font-weight: 500;
+      outline: none;
+      transition: background 0.2s;
+    }
+
+    input::placeholder {
+      color: #333;
+    }
+
+    input[type="file"] {
+      border: none;
+      background: transparent;
+      padding: 5px;
+    }
+
+    input:focus {
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    button {
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      background: rgba(0, 119, 182, 0.6);
+      backdrop-filter: blur(6px);
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background: rgba(0, 119, 182, 0.9);
+      transform: scale(1.03);
+    }
+
+    p {
+      font-size: 14px;
+      color: #FFFFFF;
+    }
+
+    p a {
+      text-decoration: none;
+      color: #0077b6;
+      font-weight: bold;
+    }
+
+    p a:hover {
+      text-decoration: underline;
+    }
+
+    .success-message {
+      display: none;
+      background: rgba(76, 175, 80, 0.9);
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    /* ✅ Back to Home Button */
+    .back-home-btn {
+      position: absolute;
+      top: 20px;
+      left: 25px;
+      font-size: 16px;
+      color: #ffffff;
+      background: rgba(0, 76, 140, 0.5);
+      border: none;
+      border-radius: 25px;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-weight: 600;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+    }
+
+    .back-home-btn:hover {
+      background: rgba(0, 76, 140, 0.8);
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      .main {
+        width: 90%;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      input,
+      button {
+        font-size: 14px;
+        padding: 8px;
+      }
+
+      button {
+        padding: 12px;
+      }
+
+      p {
+        font-size: 14px;
+        color: #000000;
+        font-weight: 500;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ Back to Home Button -->
+  <a href="index.html" class="back-home-btn">← Back to Home</a>
+
+  <div class="main">
+    <h1>TeleHealth Connect 24/7</h1>
+    <h3>Enter your registration details</h3>
+
+    <div class="success-message" id="successMessage">
+      Registration successful! Welcome aboard! 🎉
+    </div>
+
+    <form id="registrationForm">
+      <label for="first_name">First Name:</label>
+      <input type="text" id="first_name" name="first_name" placeholder="Enter your First Name" required>
+
+      <label for="last_name">Last Name:</label>
+      <input type="text" id="last_name" name="last_name" placeholder="Enter your Last Name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your Email" required>
+
+      <label for="date_of_birth">Date of Birth:</label>
+      <input type="date" id="date_of_birth" name="date_of_birth" required>
+
+      <label for="phone_number">Phone Number:</label>
+      <input type="tel" id="phone_number" name="phone_number" placeholder="Enter your Phone Number" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <p>Already registered?
+      <a href="signin.html">Login here</a>
+    </p>
+  </div>
+
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
+  
+  const formData = {
+    username: document.getElementById('first_name').value + document.getElementById('last_name').value,
+    email: document.getElementById('email').value,
+    password: document.getElementById('password').value,
+    password2: document.getElementById('password').value
+  };
+
+  try {
+    const response = await fetch('http://localhost:8000/api/register/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      const successMsg = document.getElementById('successMessage');
+      successMsg.style.display = 'block';
+      
+      // Store additional profile data for later update
+      localStorage.setItem('pendingProfile', JSON.stringify({
+        firstName: document.getElementById('first_name').value,
+        lastName: document.getElementById('last_name').value,
+        dateOfBirth: document.getElementById('date_of_birth').value,
+        phoneNumber: document.getElementById('phone_number').value,
+      }));
+
+      setTimeout(() => {
+        window.location.href = 'signin.html';
+      }, 2000);
+    } else {
+      alert('Registration failed: ' + JSON.stringify(data));
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('An error occurred during registration. Please try again.');
+  }
+});
+  </script>
+</body>
+
+</html>
